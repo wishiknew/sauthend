@@ -4,8 +4,7 @@ import {
   Switch,
   Route,
   Link,
-  Redirect,
-  useHistory
+  Redirect
 } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -50,7 +49,7 @@ export default function App() {
               <Login setLoggedIn={setLoggedIn} />
             </Route>
             <Route path="/register">
-              <Register />
+              <Register setLoggedIn={setLoggedIn} />
             </Route>
             <Route path="/dashboard">
               <Dashboard />
