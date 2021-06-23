@@ -15,7 +15,9 @@ export const UserContext = React.createContext([]);
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  let history = useHistory([]);
+  const handleClick = () => {
+    setLoggedIn(false);
+  }
   return (
     <UserContext.Provider value={[loggedIn, setLoggedIn]}>
       <Router>
@@ -35,7 +37,7 @@ export default function App() {
             </ul>
             <ul className='d-flex flex-row-reverse'>
               {loggedIn && <li>
-                <li className='btn btn-danger' onClick={() => history.push('/login')}>
+                <li className='btn btn-danger' onClick={handleClick}>
                   Logout
                 </li>
               </li>}
@@ -49,9 +51,6 @@ export default function App() {
             </Route>
             <Route path="/register">
               <Register />
-            </Route>
-            <Route path="/logout">
-              <Redirect to="/" />
             </Route>
             <Route path="/dashboard">
               <Dashboard />
